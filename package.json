@@ -1,0 +1,11 @@
+{
+  "name": "first",
+  "version": "1.0.0",
+  "description": "моя первая программа",
+  "main": "script.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "author": "Дмитрий",
+  "license": "ISC"
+}

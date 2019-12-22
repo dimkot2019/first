@@ -187,21 +187,21 @@ console.log('t20', t20);
 
 // 21. Даны три числа a, b, c. Найти сумму двух наибольших среди них.
 function  sumTwoLargestNumbers (a, b, c) {
-    if ((a => b)&&(b > c)) {
+    if ((a >= b) && (b > c)) {
         return a + b;
-        } else if ((a < b)&&(b <= c)) {
-            return b + c;
-        } else if (((a > b)&&(b < c)) || ((a > b)&&(b < c)&&(a === c))) {
-            return a + c;
-        } else if ((a < b)&&(b > c)&&(a > c)) {
-            return a + b;
-        } else if ((a < b)&&(b > c)&&(a < c)) {
-            return b + c;
-        } else {
-            return false;
+    } else if ((a < b) && (b <= c)) {
+        return b + c;
+    } else if (((a > b) && (b < c)) || ((a > b) && (b < c) && (a === c))) {
+        return a + c;
+    } else if ((a < b) && (b > c) && (a > c)) {
+        return a + b;
+    } else if ((a < b) && (b > c) && (a < c)) {
+        return b + c;
+    } else {
+        return false;
     }
 }
-const t21 = sumTwoLargestNumbers (5, 8, 6);
+const t21 = sumTwoLargestNumbers (7, 7, 6);
 console.log('t21', t21);
 
 // 22. Дано целое число n. Вывести его строку-описание вида "положительное целое число", "отрицательное нечетное число"

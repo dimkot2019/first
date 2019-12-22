@@ -30,3 +30,11 @@ function checkTruth (a, b) {
 
 const testCheckTruth = checkTruth(4, -90);
 console.log('test-01', testCheckTruth);
+
+Boolean;
+String;
+Number;
+
+// Ручное преобразование типа
+ const convertToNumber = Number('5');
+ const convertToBoolean = Boolean(0);

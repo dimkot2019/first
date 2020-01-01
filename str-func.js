@@ -121,3 +121,33 @@ const upperCaseWords = str => {
 
     return result;
 };
+
+// 7. Имеется строковое выражение содержащие три вида скобок (), [], {}. Нужно проверить, что все скобки расставлены правильно.
+// Тоесть вырежения ') a + b ( c - 1 )', '( rt [ ft ) + h ]' - являются не корректными как и в математике
+
+const isCorrectBrackets = expression => {
+    let bracketsTurn = [];
+    const openBrackets = '([{';
+    const closeBrackets = ')]}';
+
+    for (let i = 0; i < expression.length; i += 1) {
+        const currentSymbol = expression[i];
+        const lastBrackets = bracketsTurn.length ? bracketsTurn[bracketsTurn.length - 1] : '';
+
+        if (openBrackets.includes(currentSymbol)) {
+            bracketsTurn.push(currentSymbol);
+        }
+
+        const index = closeBrackets.indexOf(currentSymbol);
+
+        if (index > -1) {
+            if (openBrackets[index] === lastBrackets) {
+                bracketsTurn.pop();
+            } else {
+                return false;
+            }
+        }
+    }
+
+    return !bracketsTurn.length;
+};

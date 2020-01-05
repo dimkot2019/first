@@ -630,9 +630,239 @@ const searchSequence = array => {
 };
 
 // 17. Дан массив чисел. Удалить из него числа так, чтобы оставшиеся образовали
-// наибольшую возрастающую последовательность. Для решения задачи используются методы
-// динамического программирования.
+// наибольшую возрастающую последовательность.
 
 const highestIncreasingSequence = array => {
+    const memory = [];
 
+    const maxLengthIncreasing = (arrays, number) => {
+        const list = arrays.slice();
+        list.sort((a, b) => a.length > b.length ? -1 : 1);
+        for (let i = 0; i < list.length; i += 1) {
+            const lastArray = list[i];
+            const lastNumber = lastArray[lastArray.length - 1];
+
+            if (number > lastNumber) {
+                return lastArray.concat(number);
+            }
+        }
+        return [number];
+    };
+
+    for (let i = 0; i < array.length; i += 1) {
+        const currentNumber = array[i];
+        if (i === 0) {
+            memory.push([currentNumber])
+        } else {
+            const maxIncreasing = maxLengthIncreasing(memory, currentNumber);
+            memory.push(maxIncreasing);
+        }
+    }
+
+    let search = [];
+
+    memory.forEach(a => {
+        if (a.length > search.length) {
+            search = a;
+        }
+    });
+
+    return search;
 };
+
+// Дата и время. При решении задач использовать глобальный объект Date
+
+// 1. Дана строка с датой "23.01.1988". Распарсить ее и вернуть объект Date.
+
+const parseStrToDate = string => {
+    let [day, month, year] = string.split('.');
+    return new Date(year, month - 1, day);
+};
+
+// 2. Дан объект с датой Date. Вернуть строку с датой по формату "23.01.1988"
+const numberToString = number => {
+    if (number < 10) {
+        return '0' + number;
+    }
+    return String(number);
+};
+
+const parseDateToStr = date => {
+    const arrayDate = [
+        numberToString(date.getDate()),
+        numberToString(date.getMonth() + 1),
+        numberToString(date.getFullYear())
+    ];
+
+    return arrayDate.join('.');
+};
+
+// 3. Дан номер месяца от 1 до 12 и год. Найти сколько дней в этом месяце.
+
+const getMonthDays = (month, year) => {
+    return 32 - new Date(year, month, 32).getDate();
+};
+
+// 4. Дана дата в формате строки "dd.mm.yyyy". Найти день недели.
+
+const getWeekday = string => {
+    const dayNumber = parseStrToDate(string).getDay();
+    return ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'][dayNumber];
+};
+
+// 5. Дана дата в строке и количество дней смещения. Нужно вернуть новую дату в строке
+// с указанным смещением.
+
+const dateShift = (string, shift) => {
+    const date = parseStrToDate(string);
+    const newDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() + shift);
+    return parseDateToStr(newDate);
+};
+
+// 6. Дан массив дат в строчках "dd.mm.yyyy", нужно отсортировать массив по возрастанию даты.
+
+const sortDateArray = dateArray => {
+    const newDateArray = dateArray.slice();
+    return newDateArray.sort((a, b) => {
+        return parseStrToDate(a) > parseStrToDate(b) ? 1 : -1;
+    });
+};
+
+// 7. Дана дата со строковом описании "dd.mm.yyyy". Вернуть ее полное текстовое описание в формате:
+// "23 января 2010 года - Понедельник"
+
+const getMonthPrefix = (number, parent) => {
+    switch (number) {
+        case 2:
+        case 7:
+            return parent ? 'а' : '';
+        case 4:
+            return parent ? 'я' : 'й';
+        default:
+            return parent ? 'я' : 'ь';
+    }
+};
+
+const getMonthDay = (number, parent) => {
+    const months = ['Январ', 'Феврал', 'Март', 'Апрел', 'Ма', 'Июн', 'Июл', 'Август', 'Сентябр', 'Октябр', 'Ноябр', 'Декабр'];
+    const prefix = getMonthPrefix(number, parent);
+    return months[number] + prefix;
+};
+
+const getStringDate = string => {
+    const date = parseStrToDate(string);
+    const day = date.getDate();
+    const month = getMonthDay(date.getMonth(), true).toLowerCase();
+    const year = date.getFullYear();
+    const weekDay = getWeekday(string);
+
+    return `${day} ${month} ${year} года - ${weekDay}`;
+};
+
+// 8. Дана строка с датой "23.01.1988T15:30". Нужно распарсить ее и вернуть объект Date.
+
+const parseStrToDatetime = string => {
+    const [date, time] = string.split('T');
+    const [day, month, year] = date.split('.');
+    const [hours, minute] = time.split(':');
+
+    return new Date(year, month - 1, day, hours, minute);
+};
+
+// 9. Дан объект Date с указанием времени. Нужно вернуть строку в формате "23.01.1988T15:30".
+
+const parseDatetimeToStr = datetime => {
+    const date = [
+        numberToString(datetime.getDate()),
+        numberToString(datetime.getMonth() + 1),
+        datetime.getFullYear(),
+    ];
+
+    const time = [
+        numberToString(datetime.getHours()),
+        numberToString(datetime.getMinutes()),
+    ];
+
+    return `${date.join('.')}T${time.join(':')}`;
+};
+
+// 10. Дана строка с датой "23.01.1988T15:30" и смещение в часах. Нужно вернуть новую строковую дату.
+
+const hoursToMilliseconds = number => {
+    return number * 3600000;
+};
+
+const datetimeHoursShift = (string, shift) => {
+    const date = parseStrToDatetime(string);
+    const newDate = new Date(Number(date) + hoursToMilliseconds(shift));
+    return parseDatetimeToStr(newDate);
+};
+
+// Объекты и классы.
+
+// 1. Написать класс создания объектов Student, со свойствами: name, group_number, score (массив с оценками 1-5).
+
+class Student {
+    constructor(name, groupNumber) {
+        this._name = name;
+        this._groupNumber = groupNumber;
+        this._score = [];
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    set name(name) {
+        this._name = name;
+    }
+
+    get groupNumber() {
+        return this._groupNumber;
+    }
+
+    set groupNumber(number) {
+        this._groupNumber = number;
+    }
+
+    addScore(number) {
+        this._score.push(number);
+    }
+
+    get averageScore() {
+        const scoreSummary = this._score.length && this._score.reduce((prev, next) => prev + next);
+        return scoreSummary ? scoreSummary / this._score.length : 0;
+    }
+}
+
+class StudentList {
+    constructor() {
+        this._students = [];
+    }
+
+    addStudent(studentArray) {
+        studentArray.forEach(({name, groupNumber}) => {
+            this._students.push(new Student(name, groupNumber));
+        });
+    }
+
+    deleteStudent(index) {
+        this._students = this._students.splice(index, 1);
+    }
+
+    getStudentList() {
+        return this._students.map(student => ({
+            name: student.name,
+            groupNumber: student.groupNumber,
+            averageScore: student.averageScore,
+        }));
+    }
+}
+
+// 2. Добавить классу методы: добавления оценок студенту, изменения имени и группы студента через геттеры/сеттеры
+
+// 3. Добавить метод вычисления среднего балла студента
+
+// 4. Нужно создать класс Коллекции, который имеет методы: создания объекта Student,
+// удаления объекта по индексу, метод который возвращает список студентов (новые экземпляры объектов
+// со статическими данными)

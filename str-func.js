@@ -866,3 +866,35 @@ class StudentList {
 // 4. Нужно создать класс Коллекции, который имеет методы: создания объекта Student,
 // удаления объекта по индексу, метод который возвращает список студентов (новые экземпляры объектов
 // со статическими данными)
+
+// На строке в позициях 0 до 80 набито арифметическое выражение. В четных позициях набиты цифры,
+// в нечетных - знаки арифметических операций: "+" (сложение), "-" (вычитание), "*" (умножение) и "/" (деление).
+// Напечатать числовое значение арифметического выражения. Порядок выполнения операций соответствует общепринятому.
+
+const arithmetiExpression = expression => {
+    let symbols = expression.join('');
+
+    for (let i = 1; i < symbols.length; i += 2) {
+        const leftNum = symbols[i - 1];
+        const rightNum = symbols[i + 1];
+        const action = symbols[i];
+
+        if (action === '*') {
+            symbols.splice(i - 1, 3, leftNum * rightNum);
+        } else if (action === '/') {
+            symbols.splice(i - 1, 3, leftNum / rightNum);
+        }
+    }
+
+    for (let i = 1; i < symbols.length; i += 2) {
+        const leftNum = symbols[i - 1];
+        const rightNum = symbols[i + 1];
+        const action = symbols[i];
+
+        if (action === '+') {
+            symbols.splice(i - 1, 3, leftNum * rightNum);
+        } else {
+
+        }
+    }
+};

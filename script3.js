@@ -475,13 +475,13 @@ function max (n) {
 
 // 4. Даны числа a, b, n. Узнать сумму всех чисел от a до b (включительно). Но если
 //    число делиться на n без остатка, то умножить его на 7. А если его квадрат больше (n - 15), то разделить на 2.
-function sumNumbers (a, b, n) {
+function sumNum (a, b, n) {
     let i = a;
     let sum1 = 0;
     let sum2 = 0;
     let sum3 = 0;
     while (a <= i <=b) {
-        if (i % n == 0) {
+        if (i % n === 0) {
             sum1 += i * 7;
         }
         else if ((i ** 2) > n - 15) {

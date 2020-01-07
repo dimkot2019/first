@@ -566,12 +566,18 @@ const t13 = sumNum (2, 10, 3);
 console.log('t13', t13);
 
 
+
+
 // Задачи используемые в работе и на собеседованиях.
 
 // 1. Дана строка - str. Нужно вернуть количество символов в строке (учитываются любые символы, и пробелы тоже)
 // Пример строки: 'Это строка с текстом'
-function numberOfCharacters (n) {
-    return n.length;
+function numberOfCharacters (m) {
+    let i =0;
+    for (let z of m) {
+        i++;
+    }
+    return i;
 }
 const t14 = numberOfCharacters ('Это строка с текстом');
 console.log('t14', t14);

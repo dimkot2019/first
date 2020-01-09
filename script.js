@@ -573,8 +573,9 @@ console.log('t13', t13);
 // 1. Дана строка - str. Нужно вернуть количество символов в строке (учитываются любые символы, и пробелы тоже)
 // Пример строки: 'Это строка с текстом'
 function numberOfCharacters (m) {
-    let i =0;
-    for (let z of m) {
+    let i = 0;
+    let z = 0;
+    for (z of m) {
         i++;
     }
     return i;
@@ -585,47 +586,60 @@ console.log('t14', t14);
 // 2. Дана строка - str. Нужно убрать лишние пробелы ТОЛЬКО в начале строки и в конце.
 // Пример строки: '    В этой строке   есть лишние  пробелы в начале и  конце      '
 function removingSpacesBeginningAndEnd (n) {
-    return n.trim();
+    for (let i = 0; i < n.length; i++) {
+        if (n[i] !==' ') {
+            for (let j = n.length-1; j <= n.length-1; j--) {
+                if (n[j] !==' ')  {
+                    return n.substr(i, j);
+                }
+            }
+        }
+    }
 }
-const t15 = removingSpacesBeginningAndEnd ('   В этой строке   есть лишние  пробелы в начале и  конце     '
+const t15 = removingSpacesBeginningAndEnd ('   В этой строке   есть лишние  пробелы в начале и  конце.     '
 );
 console.log('t15', t15);
 
 // 3. Дана строка - str. Нужно посчитать количество слов в строке.
 // Пример строки: 'В этой строке целых девять слов, вместе с предлогами'
 function amountWords (n) {
-    return n.split(' ').length;
+    let sum = 0;
+    for (let i = 0; i < n.length; i++) {
+        if (n[i] !== ' '){
+            if (n[i +1] === ' ') {
+                sum += 1;
+            }
+        }
+    }
+    if (n[n.length - 1] !== ' '){
+        return sum + 1;
+    }
+    return sum;
 }
 const t16 = amountWords ('В этой строке целых девять слов, вместе с предлогами');
 console.log('t16', t16);
 
 // 4. Дана строка - str. Нужно исправить текст, чтобы предложения начинались с большой буквы.
 // Пример строки: 'жил был колобок. он от бабушки ушел. потом песенку спел. а лиса его съела.'
-function sentencesWithCapitalLetter(x17) {
-    return x17.replace(/^./, x17[0].toUpperCase());
-//         x17 = x17[0].toUpperCase()+ x17.substr(1);
-//         let sum = 0;
-//         for (let z = 1; z <= x17.length - 1; z++) {
-//             if (x17.charAt(z) === '.') {
-//                 let a17 = x17[z + 2].toUpperCase() + x17.substr(z + 3);
+function sentencesWithCapitalLetter(n) {
+    let t = 0;
+    for (let i = t; i < n.length; i++){
+        if (n[i] !== ' '){
+            for (let j = i + 1; n[j] !== '.'; j++){
 
-//             }
-//             sum += z;
-//             return a17;
-//         }
-//         return sum;
-//    return x17.charAt(z + 2);
-//    return x17 + x17[17].toUpperCase() + x17.substr(18);
+            }
+            let k = n[i].toUpperCase() + n.substr(i + 1, j);
+
+            t = j + 1;
+        }
+//        k += k;
+    }
+    return k;
 }
 const t17 = sentencesWithCapitalLetter('жил был колобок. он от бабушки ушел. потом песенку спел. а лиса его съела.');
 console.log('t17', t17);
-//s = s[0].toUpperCase () + s.substr (1).toLowerCase ();
 
-function arrayStrings (st) {
-    return st.split(' ');
-}
-const t17a = arrayStrings ('жил был колобок. он от бабушки ушел. потом песенку спел. а лиса его съела.');
-console.log('t17a', t17a);
+
 
 // 5. Дана строка - str. Нужно найти дубли букв в строке и оставить одну букву.
 // Пример строки: 'В этооооой сссстрокее еесть дуббли ббуквв'

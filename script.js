@@ -611,7 +611,7 @@ function amountWords (n) {
             }
         }
     }
-    if (n[n.length - 1] !== ' '){
+    if (n[n.length - 1] !== ' ') {
         return sum + 1;
     }
     return sum;
@@ -622,27 +622,44 @@ console.log('t16', t16);
 // 4. Дана строка - str. Нужно исправить текст, чтобы предложения начинались с большой буквы.
 // Пример строки: 'жил был колобок. он от бабушки ушел. потом песенку спел. а лиса его съела.'
 function sentencesWithCapitalLetter(n) {
-    let t = 0;
-    for (let i = t; i < n.length; i++){
-        if (n[i] !== ' '){
-            for (let j = i + 1; n[j] !== '.'; j++){
-
+    let t;
+    let m = '';
+    let z = 0;
+    let k = n[z].toUpperCase();
+    for (let i = 0; i < n.length; i++) {
+        if (n[i] === '.' && i < n.length - 1) {
+            m = m + n.substr(z + 1, i - z + 1) + n[i + 2].toUpperCase();
+            z = i + 2;
+                }
             }
-            let k = n[i].toUpperCase() + n.substr(i + 1, j);
-
-            t = j + 1;
-        }
-//        k += k;
-    }
-    return k;
+    return t = k + m + n.substr(- 16, 16);
 }
 const t17 = sentencesWithCapitalLetter('жил был колобок. он от бабушки ушел. потом песенку спел. а лиса его съела.');
 console.log('t17', t17);
 
 
-
 // 5. Дана строка - str. Нужно найти дубли букв в строке и оставить одну букву.
 // Пример строки: 'В этооооой сссстрокее еесть дуббли ббуквв'
+
+function removeDuplicateLetters (n) {
+    let i;
+    let z = i;
+    let s = '';
+    for (let i = 0; i < n.length; i++){
+        if (n[i] === n[i + 1]){
+            s = s + n.substr(z, i + 1);
+//            return n.substr(z, i - z - 1);
+        }
+         s = n.substr(0, i =+ 1);
+//        z = i - 1;
+//        return n.substr(z, i + 2 );
+    }
+    return s;
+}
+
+
+const t18 = removeDuplicateLetters ('В этой.');
+console.log('t18', t18);
 
 // 6. Дана строка - str. Нужно все символы в строке сделать с большой буквы.
 // Пример строки: 'сейчас в этой строке только маленькие буквы'

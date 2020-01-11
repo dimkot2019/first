@@ -647,10 +647,10 @@ function removeDuplicateLetters (n) {
     let s = '';
     for (let i = 0; i < n.length; i++){
         if (n[i] === n[i + 1]){
-            s = s + n.substr(z, i + 1);
+            s = s + n.slice(0, i) + n.slice(i + 1);
 //            return n.substr(z, i - z - 1);
         }
-         s = n.substr(0, i =+ 1);
+//         s = n.substr(0);
 //        z = i - 1;
 //        return n.substr(z, i + 2 );
     }
@@ -658,8 +658,10 @@ function removeDuplicateLetters (n) {
 }
 
 
-const t18 = removeDuplicateLetters ('В этой.');
+const t18 = removeDuplicateLetters ('В этоой сстроке.');
 console.log('t18', t18);
+
+
 
 // 6. Дана строка - str. Нужно все символы в строке сделать с большой буквы.
 // Пример строки: 'сейчас в этой строке только маленькие буквы'

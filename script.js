@@ -574,10 +574,11 @@ console.log('t13', t13);
 // Пример строки: 'Это строка с текстом'
 function numberOfCharacters (m) {
     let i = 0;
-    let z = 0;
-    for (z of m) {
+
+    for (let z of m) {
         i++;
     }
+
     return i;
 }
 const t14 = numberOfCharacters ('Это строка с текстом');
@@ -589,7 +590,7 @@ function removingSpacesBeginningAndEnd (n) {
     for (let i = 0; i < n.length; i++) {
         if (n[i] !==' ') {
             for (let j = n.length-1; j <= n.length-1; j--) {
-                if (n[j] !==' ')  {
+                if (n[j] !== ' ')  {
                     return n.substr(i, j);
                 }
             }

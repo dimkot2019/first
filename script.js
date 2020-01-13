@@ -635,7 +635,7 @@ function sentencesWithCapitalLetter(n) {
             }
     return t = k + m + n.substr(- 16, 16);
 }
-const t17 = sentencesWithCapitalLetter('жил был колобок. он от бабушки ушел. потом песенку спел. а лиса его съела.');
+const t17 = sentencesWithCapitalLetter('жил был колобок. он от бабушки ушел. потом песенку спел. потом попил пива. а лиса его съела.');
 console.log('t17', t17);
 
 
@@ -643,29 +643,36 @@ console.log('t17', t17);
 // Пример строки: 'В этооооой сссстрокее еесть дуббли ббуквв'
 
 function removeDuplicateLetters (n) {
-    let i;
-    let z = i;
     let s = '';
     for (let i = 0; i < n.length; i++){
+        let z = i;
         if (n[i] === n[i + 1]){
-            s = s + n.slice(0, i) + n.slice(i + 1);
-//            return n.substr(z, i - z - 1);
+            z += 1;
         }
-//         s = n.substr(0);
-//        z = i - 1;
-//        return n.substr(z, i + 2 );
+        s = s + n.slice(z, i + 1);
     }
     return s;
 }
-
-
-const t18 = removeDuplicateLetters ('В этоой сстроке.');
+const t18 = removeDuplicateLetters ('В этооооой сссстрокее еесть дуббли ббуквв');
 console.log('t18', t18);
-
 
 
 // 6. Дана строка - str. Нужно все слова в строке сделать с большой буквы.
 // Пример строки: 'сейчас в этой строке только маленькие буквы'
+
+function allWordsAreCapitalized(n) {
+let s = '';
+for (let i = 0; i < n.length; i += 1) {
+if (n[i] === ' ') {
+    s = s + n[i + 1].toUpperCase();
+    i += 1;
+}
+s += n.substr(i + 1, 1);
+}
+return s = n[0].toUpperCase() + s ;
+}
+const t23 = allWordsAreCapitalized('сейчас в этой строке только маленькие буквы');
+console.log('t23', t23);
 
 // 7. Имеется строковое выражение содержащие три вида скобок (), [], {}. Нужно проверить, что все скобки расставлены правильно.
 // Тоесть вырежения ') a + b ( c - 1 )', '( rt [ ft ) + h ]' - являются не корректными как и в математике
@@ -703,3 +710,7 @@ bsf pof ipoljoh sfbuh efbj .. fu(tm pe psfn gp tf"uip
 
 // 14. Реализуй шифрование и дешифрование "сендвич". Суть в следующем. Текст делиться попалам на две равные
 // части и новый текст собирается из поочередного соединения этих двух строк.
+
+// 15. Дан текст. Написать функцию которая считает все символы и выводит информацию в виде такого объекта:
+// { a: 24, b: 12, !: 4, h: 90, 8: 23 }
+

@@ -478,8 +478,7 @@ function max (n) {
 function sumNum (a, b, n) {
     let i = a;
     let sum1 = 0;
-    let sum2 = 0;
-    let sum3 = 0;
+    let sum2 = 0; let sum3 = 0;
     while (a <= i <=b) {
         if (i % n === 0) {
             sum1 += i * 7;

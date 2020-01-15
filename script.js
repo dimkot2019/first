@@ -735,18 +735,56 @@ const tm2 = arithmeticAverageOfTheEvenNumbers([2,3,5,6,8]);
 console.log('tm2', tm2) ;
 
 // 3. Дан массив чисел. Найти число которое встречается чаще всего
-function numberThatOccursMostOften(n){
-n.forEach(function (i, n){
-    const p = n.fill(n[i], i, n.length - 1)
-});
+function numberThatOccursMostOften(n) {
+    let k;
+    let max = 0;
+    let counter = 0;
+    for (let i = 0; i < n.length; i += 1) {
+        for (let j = i; j < n.length; j += 1) {
+            if (n[i] === n[j]) {
+                counter += 1;
+            }
+            if (counter > max) {
+                max = counter;
+                k = n[i];
+            }
+        }
+        counter = 0;
+    }
+    return k;
 }
-const tm3 = numberThatOccursMostOften ([1,2,2,3,3,3]);
+const tm3 = numberThatOccursMostOften ([3,1,3,0,24,15,99,103,15,7,99,15,8]);
 console.log('tm3', tm3);
+
 // 4. Дан массив чисел. Оставить только четные числа, которые деляться на 3 без остатка.
+function evenNumbersThatAreDivisibleBy3(n) {
+    let e = n.filter((p) => p % 2 === 0 && p % 3 === 0);
+    return e;
+}
+const tm4 = evenNumbersThatAreDivisibleBy3 ([1,9,12,6]);
+console.log('tm4', tm4);
 
 // 5. Дан массив данных. Переставить эелементы массива в обратном порядке.
+function revers_ (n){
+    let e = n.reverse();
+    return e;
+}
+const tm5 = revers_ (['k','l',2,3,'w','o',0]);
+console.log('tm5', tm5);
 
 // 6. Дано число N. Заполнить массив N-количеством случайных целых чисел от 0 до N. При этом числа не должны повторяться.
+function randomIntegers(N){
+    let k;
+    for (let i = 1; i <= N; i +=1) {
+        let m = Math.ceil(Math.random() * N);
+        k = m;
+        k = k + ',k';
+//        return
+    }
+    return k;
+}
+const tm6 = randomIntegers(5);
+console.log('tm6',tm6);
 
 // 7. Дано число N - шаг геометрической прогрессии и X - число с которого начинается прогрессия,
 // Y - длина прогрессии. Вернуть массив заполненный такой прогрессией.

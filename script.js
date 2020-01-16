@@ -774,20 +774,33 @@ console.log('tm5', tm5);
 
 // 6. Дано число N. Заполнить массив N-количеством случайных целых чисел от 0 до N. При этом числа не должны повторяться.
 function randomIntegers(N){
-    let k;
+    let e = [];
     for (let i = 1; i <= N; i +=1) {
-        let m = Math.ceil(Math.random() * N);
-        k = m;
-        k = k + ',k';
-//        return
+        e[i - 1] = Math.ceil(Math.random() * N);
+        for (let j = 0; j < i - 1; j +=1) {
+            if (e[i - 1] === e[j]) {
+                i -= 1;
+                break;
+            }
+        }
     }
-    return k;
+    return e;
 }
-const tm6 = randomIntegers(5);
+const tm6 = randomIntegers(19);
 console.log('tm6',tm6);
 
-// 7. Дано число N - шаг геометрической прогрессии и X - число с которого начинается прогрессия,
+// 7. Дано число N - шаг геометрической прогрессии и X - число с которого начинается прогрессия
 // Y - длина прогрессии. Вернуть массив заполненный такой прогрессией.
+function geometricProgression(x,y,n){
+let b = [];
+b[0] = x;
+for (let i = 0; b[i] < y; i +=1){
+    b[i + 1] = b[i] * n;
+}
+return b;
+}
+const tm7 = geometricProgression(2,1024,2);
+console.log('tm7', tm7);
 
 // 8. Дан массив чисел. Найти количество четных чисел в массиве.
 

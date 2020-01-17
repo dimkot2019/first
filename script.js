@@ -803,12 +803,37 @@ const tm7 = geometricProgression(2,1024,2);
 console.log('tm7', tm7);
 
 // 8. Дан массив чисел. Найти количество четных чисел в массиве.
+function numberOfEvenNumbers(n){
+    const b = n.filter((k) => k % 2 === 0);
+    return b.length;
+}
+const tm8 = numberOfEvenNumbers([3,2.3,7,2,8,9,10]);
+console.log('tm8',tm8);
 
 // 9. Дан массив всевозможных данных. Очистить его от falsebel элементов, тоесть false, 0, null и тд.
+function clearFromFalsebel(){
+
+}
 
 // 10. Дан массив чисел. Найти самое большое четное число в массиве.
+function largestEvenNumber(n) {
+    return Math.max.apply(null,n.filter((b) => b % 2 === 0));
+}
+const tm10 = largestEvenNumber([1,4,5,988,3,6,986]);
+console.log('tm10',tm10);
 
 // 11. Дан массив чисел. Найти два соседних элемента, чья сумма будет наименьшей.
+function twoAdjacentElementsSumSmallest(n) {
+    for (let i = 0; i < n.length; i +=1){
+        if((n[i] + n[i + 1]) < (n[i + 1] + n[i + 2])){
+            let k = [n[i],n[i + 1]];
+        } else if ((n[i] + n[i + 1]) === (n[i + 1] + n[i + 2])){
+
+        }
+        k = [n[i + 1],n[i + 2]];
+    }
+    
+}
 
 // 12. Дан массив чисел. Найти все повторяющиеся числа и какое количество раз.
 

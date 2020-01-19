@@ -35,9 +35,9 @@ console.log('test05', testpaed);
 
 //6.Даны две переменные А и В.Поменять местами их содержимое.Чтобы значение из А лежало В,а значение В в А.
 function swapContents (A, B) {
-    const C = A;
-    A = B;
-    B = C;
+    const C = B;
+    B = A;
+    A = C;
     return  [A, B];
 }
 const testswts = swapContents (15, 35);
@@ -824,18 +824,33 @@ console.log('tm10',tm10);
 
 // 11. Дан массив чисел. Найти два соседних элемента, чья сумма будет наименьшей.
 function twoAdjacentElementsSumSmallest(n) {
-    for (let i = 0; i < n.length; i +=1){
-        if((n[i] + n[i + 1]) < (n[i + 1] + n[i + 2])){
-            let k = [n[i],n[i + 1]];
-        } else if ((n[i] + n[i + 1]) === (n[i + 1] + n[i + 2])){
-
+    let k = [n[0], n[1]];
+    let p = n[0] + n[1];
+    for (let i = 1; i < n.length - 1; i += 1){
+            if (p > n[i] + n[i + 1]) {
+                p = n[i] + n[i + 1];
+                k = [n[i], n[i + 1]];
+            }
         }
-        k = [n[i + 1],n[i + 2]];
-    }
-    
+    return k;
 }
+const tm11 = twoAdjacentElementsSumSmallest([0,1,4,0,0,5,-5]);
+console.log('tm11',tm11);
 
 // 12. Дан массив чисел. Найти все повторяющиеся числа и какое количество раз.
+function allDuplicateNumbersAndTheNumberOfTimes(n){
+    let k =[];
+    for (let i = 0; i < n.length; i +=1){
+        for (let j = 1; j < n.length; j +=1){
+            if (n[i] === n[j]){
+               k[i] = n[j];
+            }
+        }
+    }
+    return k;
+}
+const tm12 = allDuplicateNumbersAndTheNumberOfTimes([1,4,3,4,5,1,1]);
+console.log('tm12',tm12);
 
 // 13. Дан массив чисел. Удалить все элементы из массива, которые повторяются больше двух раз.
 

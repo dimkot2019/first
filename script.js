@@ -811,9 +811,16 @@ const tm8 = numberOfEvenNumbers([3,2.3,7,2,8,9,10]);
 console.log('tm8',tm8);
 
 // 9. Дан массив всевозможных данных. Очистить его от falsebel элементов, тоесть false, 0, null и тд.
-function clearFromFalsebel(){
-
+function clearFromFalsebel(n){
+    for (let i = 0;i < n.length;i += 1){
+        if (Boolean(n[i])===false || n[i] === false){
+            n = n.filter((b) => b !== n[i]);
+        }
+    }
+    return n;
 }
+const tm9 = clearFromFalsebel([0,2,null,45, ,-0,undefined]);
+console.log('tm9',tm9);
 
 // 10. Дан массив чисел. Найти самое большое четное число в массиве.
 function largestEvenNumber(n) {
@@ -839,17 +846,17 @@ console.log('tm11',tm11);
 
 // 12. Дан массив чисел. Найти все повторяющиеся числа и какое количество раз.
 function allDuplicateNumbersAndTheNumberOfTimes(n){
-    let k =[];
-    for (let i = 0; i < n.length; i +=1){
-        for (let j = 1; j < n.length; j +=1){
-            if (n[i] === n[j]){
-               k[i] = n[j];
+    let m =[];
+    for (let i = 0; i < n.length; i += 1){
+        for (let j =i + 1; j < n.length; j += 1){
+            if (n[i] === n[j] && m.includes(n[j]) === false) {
+                m = m + n.filter((b) => b === n[j])+' ';
             }
         }
     }
-    return k;
+   return m;
 }
-const tm12 = allDuplicateNumbersAndTheNumberOfTimes([1,4,3,4,5,1,1]);
+const tm12 = allDuplicateNumbersAndTheNumberOfTimes([1,4,2,1,1,4,2,4,5,7,1]);
 console.log('tm12',tm12);
 
 // 13. Дан массив чисел. Удалить все элементы из массива, которые повторяются больше двух раз.

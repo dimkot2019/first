@@ -860,6 +860,24 @@ const tm12 = allDuplicateNumbersAndTheNumberOfTimes([1,4,2,1,1,4,2,4,5,7,1]);
 console.log('tm12',tm12);
 
 // 13. Дан массив чисел. Удалить все элементы из массива, которые повторяются больше двух раз.
+function  deleteItemsThatHaveMoreThan2Pieces(n){
+    let p = n.length;
+    for (let i = 0; i < n.length; i += 1) {
+        for (let j = i + 1; j < n.length; j += 1) {
+            if (n[i] === n[j]) {
+                if ((n.filter((b) => b === n[j])).length > 2) {
+                    n = n.filter((b) => b !== n[j]);
+                }
+            }
+        }
+    }
+    if (n.length === p){
+        return n =['Нет элементов,которые повторяются больше двух раз.'];
+    }
+    return n;
+}
+const tm13 = deleteItemsThatHaveMoreThan2Pieces([1,2,1,4,2]);
+console.log('tm13',tm13);
 
 // 14. Даны два массива чисел. Сформировать третий массив, который наполнен элементами которые есть и в первом и во втором массивах.
 

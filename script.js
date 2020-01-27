@@ -880,11 +880,64 @@ const tm13 = deleteItemsThatHaveMoreThan2Pieces([1,2,1,4,2]);
 console.log('tm13',tm13);
 
 // 14. Даны два массива чисел. Сформировать третий массив, который наполнен элементами которые есть и в первом и во втором массивах.
+function anArrayConsistingOfTheSameNumbersOfTwoOtherArrays(n,m) {
+    let p = [];
+    for (let i = 0; i < n.length; i += 1) {
+        for (let j = 0; j < m.length; j += 1) {
+            if (n[i] === m[j]) {
+                p += n[i];
+                n = n.filter(a => a !== n[i]);
+                m = m.filter(b => b !== m[j]);
+                i = i - 1;
+            }
+        }
+    }
+    return [p];
+}
+const tm14 = anArrayConsistingOfTheSameNumbersOfTwoOtherArrays([1,0,2,3,0],[0,3,4,2,2]);
+console.log('tm14',tm14);
 
 // 15. Дан массив чисел. Удалить из массива все числа палиндромы.
+function toRemoveTheNumberOfPalindromes(n) {
+    let p = [];
+    let m =[];
+    for (let i = 0;i < n.length;i += 1){
+        p = p + n[i];
+        while (p.length === 1){
+            n = n.filter(b => b !== n[i]);
+            p = [];
+        }
+        if ((p.length) % 2 === 0){
+            for (let j = 0;j < p.length / 2;j += 1){
+                if (p[j] !== p[p.length - 1 - j]){
+                    p = [];
+                    break;
+                }
+                n = n.filter(b => b !== n[i]);
+                p = [];
+            }
+        }
+        for (let x = 0;x < (p.length - 1) / 2;x += 1){
+            if (p[x] !== p[p.length - 1 - x]){
+                p = [];
+                break;
+            }
+            n = n.filter(b => b !== n[i]);
+            p = [];
+            i = i - 1;
+        }
+    }
+    return n ;
+}
+const tm15 = toRemoveTheNumberOfPalindromes([24,4664,-39,111,48584,2,-9,2457542,-22]);
+console.log('tm15',tm15);
 
 // 16. Дан массив чисел. Найти наибольшую возрастающую последовательность чисел
 // в этом массиве которые идут подряд. Пример: 1, 4, 6, 10
+function theLargestIncreasingSequenceOfNumbers(n) {
+
+}
+
 
 // 17. Дан массив чисел. Удалить из него числа так, чтобы оставшиеся образовали
 // наибольшую возрастающую последовательность.

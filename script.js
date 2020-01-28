@@ -935,9 +935,30 @@ console.log('tm15',tm15);
 // 16. Дан массив чисел. Найти наибольшую возрастающую последовательность чисел
 // в этом массиве которые идут подряд. Пример: 1, 4, 6, 10
 function theLargestIncreasingSequenceOfNumbers(n) {
-
+    let count = [];
+    let co = 1;
+    let macount = [];
+    let ma = 0;
+    for (let i = 1;i < n.length;i += 1){
+        if (n[i] > n[i - 1]){
+            count.splice(co - 1, 1, n[i - 1],n[i]);
+            co += 1;
+        }
+        else {
+            if (co >= ma){
+                ma = co;
+                macount = count;
+                count = [];
+                co = 1;
+            }
+                co = 1;
+                count = [];
+            }
+    }
+    return count.length >= macount.length ? count : macount;
 }
-
+const tm16 = theLargestIncreasingSequenceOfNumbers([9,10,12,14,4,5,1,99,4,6,7,8,25,0]);
+console.log('tm16',tm16);
 
 // 17. Дан массив чисел. Удалить из него числа так, чтобы оставшиеся образовали
 // наибольшую возрастающую последовательность.

@@ -876,7 +876,7 @@ function  deleteItemsThatHaveMoreThan2Pieces(n){
     }
     return n;
 }
-const tm13 = deleteItemsThatHaveMoreThan2Pieces([1,2,1,4,2]);
+const tm13 = deleteItemsThatHaveMoreThan2Pieces([1,2,1,4,2,8,9,1]);
 console.log('tm13',tm13);
 
 // 14. Даны два массива чисел. Сформировать третий массив, который наполнен элементами которые есть и в первом и во втором массивах.
@@ -929,7 +929,7 @@ function toRemoveTheNumberOfPalindromes(n) {
     }
     return n ;
 }
-const tm15 = toRemoveTheNumberOfPalindromes([24,4664,-39,111,48584,2,-9,2457542,-22]);
+const tm15 = toRemoveTheNumberOfPalindromes([24,4664,-39,111,48584,2,-9,2457542,-22,353,10]);
 console.log('tm15',tm15);
 
 // 16. Дан массив чисел. Найти наибольшую возрастающую последовательность чисел
@@ -997,6 +997,8 @@ function Counter() {
     };
 }
 const tz1 = Counter();
+console.log('tz1',tz1());
+console.log('tz1',tz1());
 console.log('tz1',tz1());
 console.log('tz1',tz1());
 

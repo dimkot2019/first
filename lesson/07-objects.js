@@ -25,7 +25,7 @@ const obj_child = Object.create(obj, {
   age: {writable: true, value: 5, configurable: true},
 });
 
-obj_child.name = 'Ivan'
+obj_child.name = 'Ivan';
 
 const Car = {
   _container: {name: 'Запаска', volume: 50},

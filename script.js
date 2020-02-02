@@ -957,7 +957,7 @@ function theLargestIncreasingSequenceOfNumbers(n) {
     }
     return count.length >= macount.length ? count : macount;
 }
-const tm16 = theLargestIncreasingSequenceOfNumbers([9,10,12,14,4,5,1,99,4,6,7,8,25,0]);
+const tm16 = theLargestIncreasingSequenceOfNumbers([9,10,12,14,4,5,1,99,4,6,7,0]);
 console.log('tm16',tm16);
 
 // 17. Дан массив чисел. Удалить из него числа так, чтобы оставшиеся образовали
@@ -966,17 +966,32 @@ function findTheLargestIncreasingSequence(n) {
     let count = [];
     let co = 1;
     let ma = 1;
+    let j;
 //    for (let j = 1;j < n.length;j += 1) {
         for (let i = 1; i < n.length; i += 1) {
             if (n[i] > n[co - 1]) {
                 count.splice(co - ma, 1, n[co - 1], n[i]);
                 co += 1;
             } else {
+                while (co > 1) {
+                    for (let j = i; j < n.length - 1; j += 1) {
+                        if (n[j + 1] > n[co - 1]) {
+                            count.splice(co - ma, 1, n[co - 1], n[j + 1]);
+                        }
+//                        return j;
+                        i = j + 2;
+//                        return i;
+                    }
+//                    i = j;
+//                    return i;
+                }
                 co += 1;
                 ma += 1;
+//                return count;
             }
-                }
-    return count;
+//            return ma;
+        }
+//    return i;
 }
 const tm17 = findTheLargestIncreasingSequence([13,10,25,9,29]);
 console.log('tm17',tm17);

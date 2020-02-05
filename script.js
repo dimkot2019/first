@@ -962,40 +962,73 @@ console.log('tm16',tm16);
 
 // 17. Дан массив чисел. Удалить из него числа так, чтобы оставшиеся образовали
 // наибольшую возрастающую последовательность.
-function findTheLargestIncreasingSequence(n) {
+/*function findTheLargestIncreasingSequence(n) {
     let count = [];
     let co = 1;
     let ma = 1;
     let j;
-//    for (let j = 1;j < n.length;j += 1) {
+    let i;
         for (let i = 1; i < n.length; i += 1) {
             if (n[i] > n[co - 1]) {
                 count.splice(co - ma, 1, n[co - 1], n[i]);
                 co += 1;
             } else {
-                while (co > 1) {
+                while (co > 1 && co < n.length - 1) {
                     for (let j = i; j < n.length - 1; j += 1) {
                         if (n[j + 1] > n[co - 1]) {
                             count.splice(co - ma, 1, n[co - 1], n[j + 1]);
+                            co += 1;
+                            ma += 1;
                         }
-//                        return j;
-                        i = j + 2;
-//                        return i;
+                        i = j + 1;
                     }
-//                    i = j;
-//                    return i;
                 }
                 co += 1;
                 ma += 1;
-//                return count;
             }
-//            return ma;
         }
-//    return i;
+    return count;
 }
-const tm17 = findTheLargestIncreasingSequence([13,10,25,9,29]);
-console.log('tm17',tm17);
+const tm17 = findTheLargestIncreasingSequence([13,10,25,9,29,30]);
+console.log('tm17',tm17); */
 
+function findTheLargestIncreasingSequence(n){
+    let count;
+    let i;
+    let p =[];
+    for (let i = 0;i < n.length ;i += 1){
+        let count = [];
+        let a = n[i];
+        for (let j = i + 1;j < n.length  ;j += 1){
+            if (n[j] > a && n[j] < n[j + 1]){
+                count.push(a);
+                a = n[j];
+            } else if (n[j] > a && n[j] > n[j + 1] && n[j + 1] > a) {
+                count.push(a);
+                a = n[j + 1];
+            } else if (n[j] > a && n[j] > n[j + 1] && n[j + 1] < a) {
+                count.push(a);
+                a = n[j];
+            }
+//            else if (n[n.length - 1] > count[count.length - 1]) {
+//                count.push(n[n.length - 1]);
+//            }
+        }
+        count.push(a);
+        if (n[n.length - 1] > count[count.length - 1]) {
+                count.push(n[n.length - 1]);
+            }
+        if (count.length > p.length) {
+            p = count;
+        }
+//        if (){
+
+//        }
+    }
+    return p;
+}
+const tm17 = findTheLargestIncreasingSequence([5,3,8,4,10,5,0,1,13,0,6,-1,8,15,20]);
+console.log('tm17',tm17);
 
 // Задачи на Замыкания
 

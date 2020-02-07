@@ -962,45 +962,13 @@ console.log('tm16',tm16);
 
 // 17. Дан массив чисел. Удалить из него числа так, чтобы оставшиеся образовали
 // наибольшую возрастающую последовательность.
-/*function findTheLargestIncreasingSequence(n) {
-    let count = [];
-    let co = 1;
-    let ma = 1;
-    let j;
-    let i;
-        for (let i = 1; i < n.length; i += 1) {
-            if (n[i] > n[co - 1]) {
-                count.splice(co - ma, 1, n[co - 1], n[i]);
-                co += 1;
-            } else {
-                while (co > 1 && co < n.length - 1) {
-                    for (let j = i; j < n.length - 1; j += 1) {
-                        if (n[j + 1] > n[co - 1]) {
-                            count.splice(co - ma, 1, n[co - 1], n[j + 1]);
-                            co += 1;
-                            ma += 1;
-                        }
-                        i = j + 1;
-                    }
-                }
-                co += 1;
-                ma += 1;
-            }
-        }
-    return count;
-}
-const tm17 = findTheLargestIncreasingSequence([13,10,25,9,29,30]);
-console.log('tm17',tm17); */
-
 function findTheLargestIncreasingSequence(n){
-    let count;
-    let i;
     let p =[];
     for (let i = 0;i < n.length ;i += 1){
-        let count = [];
+        let count =[];
         let a = n[i];
-        for (let j = i + 1;j < n.length  ;j += 1){
-            if (n[j] > a && n[j] < n[j + 1]){
+        for (let j = i + 1;j < n.length  ;j += 1) {
+            if (n[j] > a && n[j] < n[j + 1]) {
                 count.push(a);
                 a = n[j];
             } else if (n[j] > a && n[j] > n[j + 1] && n[j + 1] > a) {
@@ -1010,9 +978,6 @@ function findTheLargestIncreasingSequence(n){
                 count.push(a);
                 a = n[j];
             }
-//            else if (n[n.length - 1] > count[count.length - 1]) {
-//                count.push(n[n.length - 1]);
-//            }
         }
         count.push(a);
         if (n[n.length - 1] > count[count.length - 1]) {
@@ -1021,13 +986,10 @@ function findTheLargestIncreasingSequence(n){
         if (count.length > p.length) {
             p = count;
         }
-//        if (){
-
-//        }
     }
     return p;
 }
-const tm17 = findTheLargestIncreasingSequence([5,3,8,4,10,5,0,1,13,0,6,-1,8,15,20]);
+const tm17 = findTheLargestIncreasingSequence([5,3,8,4,10,5,0,1,0,6,-1,8,15,20]);
 console.log('tm17',tm17);
 
 // Задачи на Замыкания
@@ -1055,10 +1017,52 @@ console.log('tz1',tz1());
 // 2. Даны кнопки. Привяжите к каждой кнопке событие по клику, которое будет
 // считать количество нажатий по кнопке и выводить его в текст кнопки.
 // Количество нажатий для каждой кнопки должно хранится в замыкании. Показать решение.
+{function Counter() {
+    let counter = 0;
+    return function () {
+        return counter += 1;
+    };
+}}
+const tz2 = Counter();
+console.log('tz2',tz2());
+console.log('tz2',tz2());
+console.log('tz2',tz2());
+
+{function Counter () {
+    let counter = 0;
+
+    return function x() {
+        return counter += 1;
+    };
+}}
+
+const counter1 = Counter();
+const counter2 = Counter();
+const counter3 = Counter();
+
+const createCounter = (counter, id) => {
+    const div = document.getElementById(id);
+//    const span = div.getElementsByTagName('span')[0];
+    const button = div.getElementsByTagName('button')[0];
+
+    button.onclick = () => {
+        button.textContent = 'Клик ' + counter();
+    };
+};
+
+createCounter(counter1, 'counter-1');
+createCounter(counter2, 'counter-2');
+createCounter(counter3, 'counter-3');
 
 // 3. Дан массив цветов. Даны абзацы. По первому нажатию на абзац он должен
 // покраситься в первый цвет из массива, по второму нажатию - во второй и так далее.
 // Все абзацы работают независимо. Показать решение.
+<body>
+<p id="paragraphToChange">Hello World!</p>
+<script>
+document.getElementById("paragraphToChange").style.background  = "blue";
+</script>
+</body>
 
 // 4. Даны кнопки. Каждая кнопка по нажатию на нее выводить следующее число
 // Фибоначчи. Кнопки работают независимо. Решить через замыкания. Показать решение.

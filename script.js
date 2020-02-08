@@ -1017,20 +1017,8 @@ console.log('tz1',tz1());
 // 2. Даны кнопки. Привяжите к каждой кнопке событие по клику, которое будет
 // считать количество нажатий по кнопке и выводить его в текст кнопки.
 // Количество нажатий для каждой кнопки должно хранится в замыкании. Показать решение.
-{function Counter() {
+/*{function Counter () {
     let counter = 0;
-    return function () {
-        return counter += 1;
-    };
-}}
-const tz2 = Counter();
-console.log('tz2',tz2());
-console.log('tz2',tz2());
-console.log('tz2',tz2());
-
-{function Counter () {
-    let counter = 0;
-
     return function x() {
         return counter += 1;
     };
@@ -1042,7 +1030,6 @@ const counter3 = Counter();
 
 const createCounter = (counter, id) => {
     const div = document.getElementById(id);
-//    const span = div.getElementsByTagName('span')[0];
     const button = div.getElementsByTagName('button')[0];
 
     button.onclick = () => {
@@ -1052,17 +1039,62 @@ const createCounter = (counter, id) => {
 
 createCounter(counter1, 'counter-1');
 createCounter(counter2, 'counter-2');
-createCounter(counter3, 'counter-3');
+createCounter(counter3, 'counter-3');*/
 
 // 3. Дан массив цветов. Даны абзацы. По первому нажатию на абзац он должен
 // покраситься в первый цвет из массива, по второму нажатию - во второй и так далее.
 // Все абзацы работают независимо. Показать решение.
-<body>
-<p id="paragraphToChange">Hello World!</p>
-<script>
-document.getElementById("paragraphToChange").style.background  = "blue";
-</script>
-</body>
+/*function Co () {
+    let c = -1;
+    let n =['red','blue','green'];
+    return function x() {
+        c += 1;
+        document.getElementById(id).style.background = n[c];
+    };
+}*/
+
+//const c1 = Co();
+//const c2 = Co();
+//const c3 = Co();
+//createCo(c1, 'c-1');
+//createCo(c2, 'c-2');
+//createCo(c3, 'c-3');
+const createCo = (c, id) => {
+    const div = document.getElementById(id);
+    const p = div.getElementsByTagName('p');
+
+    p[0].onclick = () => {
+//        p.textContent =  c() ;
+        c();
+    };
+
+
+};
+/*var p = document.getElementsByTagName('p');
+console.log(p);
+p[0].onclick = f1;
+
+function f1 () {
+    alert('Hello');
+}*/
+function Co () {
+    let c = -1;
+    let n =['red','blue','green'];
+    return function x() {
+        c += 1;
+        document.getElementById(id).style.background = n[c];
+    };
+}
+
+const c1 = Co();
+const c2 = Co();
+const c3 = Co();
+
+createCo(c1, 'c-1');
+createCo(c2, 'c-2');
+createCo(c3, 'c-3');
+
+
 
 // 4. Даны кнопки. Каждая кнопка по нажатию на нее выводить следующее число
 // Фибоначчи. Кнопки работают независимо. Решить через замыкания. Показать решение.

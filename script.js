@@ -1045,11 +1045,11 @@ createCounter(counter3, 'counter-3');*/
 // покраситься в первый цвет из массива, по второму нажатию - во второй и так далее.
 // Все абзацы работают независимо. Показать решение.
 /*function Co () {
-    let c = -1;
-    let n =['red','blue','green'];
+    let y = -1;
+//    let n =['red','blue','green'];
     return function x() {
-        c += 1;
-        document.getElementById(id).style.background = n[c];
+        y += 1;
+//        document.getElementById(id).style.background = n[y];
     };
 }*/
 
@@ -1060,15 +1060,14 @@ createCounter(counter3, 'counter-3');*/
 //createCo(c2, 'c-2');
 //createCo(c3, 'c-3');
 const createCo = (c, id) => {
+    let n =['red','blue','green'];
     const div = document.getElementById(id);
     const p = div.getElementsByTagName('p');
 
+//    document.getElementById(id).style.background = n[y];
     p[0].onclick = () => {
-//        p.textContent =  c() ;
         c();
     };
-
-
 };
 /*var p = document.getElementsByTagName('p');
 console.log(p);
@@ -1078,11 +1077,11 @@ function f1 () {
     alert('Hello');
 }*/
 function Co () {
-    let c = -1;
+    let y = -1;
     let n =['red','blue','green'];
     return function x() {
-        c += 1;
-        document.getElementById(id).style.background = n[c];
+        y += 1;
+        document.getElementById(id).style.background = n[y];
     };
 }
 
@@ -1090,9 +1089,11 @@ const c1 = Co();
 const c2 = Co();
 const c3 = Co();
 
-createCo(c1, 'c-1');
-createCo(c2, 'c-2');
-createCo(c3, 'c-3');
+
+
+createCo(Co(), 'c-1');
+createCo(Co(), 'c-2');
+createCo(Co(), 'c-3');
 
 
 

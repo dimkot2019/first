@@ -1053,35 +1053,24 @@ createCounter(counter3, 'counter-3');*/
     };
 }*/
 
-//const c1 = Co();
-//const c2 = Co();
-//const c3 = Co();
-//createCo(c1, 'c-1');
-//createCo(c2, 'c-2');
-//createCo(c3, 'c-3');
-const createCo = (c, id) => {
-    let n =['red','blue','green'];
-    const div = document.getElementById(id);
-    const p = div.getElementsByTagName('p');
 
-//    document.getElementById(id).style.background = n[y];
-    p[0].onclick = () => {
+
+/* const createCo = (c, name) => {
+     window.name = name;
+//    const p = document.getElementById(id);
+    const p = getElementsByName('name')[0];
+
+    p.onclick = () => {
         c();
     };
 };
-/*var p = document.getElementsByTagName('p');
-console.log(p);
-p[0].onclick = f1;
-
-function f1 () {
-    alert('Hello');
-}*/
 function Co () {
     let y = -1;
     let n =['red','blue','green'];
     return function x() {
         y += 1;
-        document.getElementById(id).style.background = n[y];
+        document.getElementById(name).style.background = n[y];
+        return id;
     };
 }
 
@@ -1089,12 +1078,36 @@ const c1 = Co();
 const c2 = Co();
 const c3 = Co();
 
+createCo(c1, 'p-1');
+createCo(c2, 'p-2');
+createCo(c3, 'p-3');*/
 
 
-createCo(Co(), 'c-1');
-createCo(Co(), 'c-2');
-createCo(Co(), 'c-3');
 
+function Co () {
+    let y = -1;
+    let n =['red','blue','green'];
+    return function x() {
+        y += 1;
+        return document.getElementById(id).style.background = n[y];
+    };
+}
+ const createCo = (c, id) => {
+     window.id = id;
+//    const p = document.getElementById(id);
+//    const p = getElementsByName('name')[0];
+
+    id.onclick = () => {
+        c();
+    };
+};
+const c1 = Co();
+const c2 = Co();
+const c3 = Co();
+
+createCo(c1, 'p-1');
+createCo(c2, 'p-2');
+createCo(c3, 'p-3');
 
 
 // 4. Даны кнопки. Каждая кнопка по нажатию на нее выводить следующее число

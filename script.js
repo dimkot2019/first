@@ -1044,79 +1044,58 @@ createCounter(counter3, 'counter-3');*/
 // 3. Дан массив цветов. Даны абзацы. По первому нажатию на абзац он должен
 // покраситься в первый цвет из массива, по второму нажатию - во второй и так далее.
 // Все абзацы работают независимо. Показать решение.
-/*function Co () {
-    let y = -1;
-//    let n =['red','blue','green'];
+/*function Z() {
+    let y = 0;
     return function x() {
+        let n =['red','blue','green'];
+        document.getElementById(id).style.color = n[y];
         y += 1;
-//        document.getElementById(id).style.background = n[y];
     };
-}*/
-
-
-
-/* const createCo = (c, name) => {
-     window.name = name;
-//    const p = document.getElementById(id);
-    const p = getElementsByName('name')[0];
-
+}
+ const createCo = (d, id)=> {
+     const p = document.getElementById(id);
     p.onclick = () => {
-        c();
+        window.id = id;
+        d();
     };
 };
-function Co () {
-    let y = -1;
-    let n =['red','blue','green'];
-    return function x() {
-        y += 1;
-        document.getElementById(name).style.background = n[y];
-        return id;
-    };
-}
-
-const c1 = Co();
-const c2 = Co();
-const c3 = Co();
-
-createCo(c1, 'p-1');
-createCo(c2, 'p-2');
-createCo(c3, 'p-3');*/
-
-
-
-function Co () {
-    let y = -1;
-    let n =['red','blue','green'];
-    return function x() {
-        y += 1;
-        return document.getElementById(id).style.background = n[y];
-    };
-}
- const createCo = (c, id) => {
-     window.id = id;
-//    const p = document.getElementById(id);
-//    const p = getElementsByName('name')[0];
-
-    id.onclick = () => {
-        c();
-    };
-};
-const c1 = Co();
-const c2 = Co();
-const c3 = Co();
-
-createCo(c1, 'p-1');
-createCo(c2, 'p-2');
-createCo(c3, 'p-3');
+createCo(Z(), 'p-1');
+createCo(Z(), 'p-2');
+createCo(Z(), 'p-3');*/
 
 
 // 4. Даны кнопки. Каждая кнопка по нажатию на нее выводить следующее число
 // Фибоначчи. Кнопки работают независимо. Решить через замыкания. Показать решение.
+function Fib () {
+    let a = 1;
+    let b = 2;
+    return function () {
+        let c = a + b;
+        a = b;
+        b = c;
+        return c;
+    };
+}
+const createPo = (d, id) => {
+    const div = document.getElementById(id);
+    const button = div.getElementsByTagName('button')[0];
+
+    button.onclick = () => {
+        button.textContent = 'Число Фибоначчи ' + d();
+    };
+};
+
+createPo(Fib(), 'but-1');
+createPo(Fib(), 'but-2');
+
+
 
 // 5. Даны инпуты. Сделайте так, чтобы каждый инпут хранил историю своих изменений.
 // Каждый инпут свою. Изменением считается событие onchange. История должна хранится
 // в замыкании. Над каждым инпутом должны быть стрелочки назад и вперед,
 // с помощью которых можно передвигаться по истории. Показать решение.
+
+
 
 // 6. Сделайте функцию, каждый вызов который будет генерировать случайные
 // числа от 1 до 100, но так, чтобы они не повторялись, пока не будут перебраны

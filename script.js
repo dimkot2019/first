@@ -1066,7 +1066,7 @@ createCo(Z(), 'p-3');*/
 
 // 4. Даны кнопки. Каждая кнопка по нажатию на нее выводить следующее число
 // Фибоначчи. Кнопки работают независимо. Решить через замыкания. Показать решение.
-function Fib () {
+/*function Fib () {
     let a = 1;
     let b = 2;
     return function () {
@@ -1086,7 +1086,7 @@ const createPo = (d, id) => {
 };
 
 createPo(Fib(), 'but-1');
-createPo(Fib(), 'but-2');
+createPo(Fib(), 'but-2');*/
 
 
 
@@ -1094,6 +1094,26 @@ createPo(Fib(), 'but-2');
 // Каждый инпут свою. Изменением считается событие onchange. История должна хранится
 // в замыкании. Над каждым инпутом должны быть стрелочки назад и вперед,
 // с помощью которых можно передвигаться по истории. Показать решение.
+function Co () {
+    let a = [];
+    return function () {
+         a += newv.value;
+    };
+}
+const createPo = (d, id) => {
+    let newv = document.getElementById(id);
+
+    newv.onchange = () => {
+        window.newv = newv;
+        newv.value = '' ;
+            d();
+    };
+};
+
+createPo(Co(),'new_value');
+
+
+
 
 
 

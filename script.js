@@ -1095,20 +1095,32 @@ createPo(Fib(), 'but-2');*/
 // в замыкании. Над каждым инпутом должны быть стрелочки назад и вперед,
 // с помощью которых можно передвигаться по истории. Показать решение.
 function Co () {
-    let a = [];
+    let a =[];
     return function () {
          a += newv.value;
     };
 }
 const createPo = (d, id) => {
-    let newv = document.getElementById(id);
+     newv = document.getElementById(id);
 
     newv.onchange = () => {
         window.newv = newv;
-        newv.value = '' ;
+        newv.value = '';
             d();
     };
-};
+//    let button = document.getElementById('minus');
+//    button.onclick = () => {
+//        function Co () {
+//            let a = [];
+//            return function () {
+//                a += newv.value;
+//            };
+//        }
+//        newv.textContent = a[a.length - 1];
+//        newv.value = a[a.length - 1];
+
+    };
+
 
 createPo(Co(),'new_value');
 

@@ -101,4 +101,36 @@ class StudentClass {
 
 const petr = new StudentClass('Petr', 'Sidorov', 7);
 
+const room = {
+  width: 100,
+  height: 100,
+  depth: 100,
+  furniture: ['Стул', 'Стол', 'Кровать'],
+  light: {
+    levelOfIllumination: 5,
+    count: 10
+  },
+};
 
+room.furniture[1]
+
+const room_2 = {};
+
+const variable = 'furndffdg';
+
+room_2.width = 200;
+room_2.height = 200;
+room_2[variable] = 500;
+
+function addVariableToObject(value) {
+  room_2[value] = null;
+}
+
+addVariableToObject('dfgdfg');
+addVariableToObject('dfgdfg2');
+addVariableToObject('dfgdfg3');
+addVariableToObject('dfgdfg23');
+
+room_2.light = {};
+room_2.light.levelOfIllumination = 5;
+room_2.light.count = 3;

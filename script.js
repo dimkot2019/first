@@ -1128,13 +1128,13 @@ createPo(Co(),'new_value');
 function memo () {
     const valueList = [];
 
-    let currentIndex = 0;
+    let currentIndex = 2;
 
     return {
         addValue: (value) => valueList.push(value),
         getList: () => valueList,
         getCurrentValue: () => valueList[currentIndex],
-        changeStep: (step) => currentIndex += step,
+        changeStep: (step) => currentIndex -= step,
     };
 }
 
@@ -1142,9 +1142,10 @@ const memo_1 = memo();
 
 memo_1.addValue('hi');
 memo_1.addValue('norm');
+memo_1.addValue('fine');
 console.log('list', memo_1.getList());
 console.log('selectElement', memo_1.getCurrentValue());
-memo_1.changeStep(1);
+memo_1.changeStep(2);
 console.log('selectElement', memo_1.getCurrentValue());
 
 

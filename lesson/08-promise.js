@@ -11,12 +11,14 @@ const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
     const x = 100;
     resolve(x);
-  }, 3000);
+  }, 5000);
 
   setTimeout(() => {
     reject('Time out!');
-  }, 1000);
+  }, 4999);
 });
+
+console.log(promise);
 
 promise
   .then((response) => {

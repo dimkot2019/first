@@ -2,36 +2,36 @@
 function rectangleArea (a, b) {
     return a * b;
 }
-const testrectangleArea = rectangleArea (15, 3.62);
-console.log('test01', testrectangleArea);
+const testRectangleArea = rectangleArea (15, 3.62);
+console.log('test01', testRectangleArea);
 
 //2.Дана окружность с диаметром d.Найти её длину L.
 function circumference (d) {
     return Math.PI * d;
 }
-const testcice = circumference (100);
-console.log('test02', testcice);
+const testCice = circumference (100);
+console.log('test02', testCice);
 
 //3.Даны длины ребер прямоугольного параллепипеда a,b,c.Найти его объём V.
 function parallelepipedV (a, b, c) {
     return a * b * c;
 }
-const testpadV = parallelepipedV (3, 5, 10);
-console.log('test03', testpadV);
+const testPadV = parallelepipedV (3, 5, 10);
+console.log('test03', testPadV);
 
 //4.Дано расстояние L в сантиметрах.Найти полное кол-во метров в нём.
 function numberTotalMeters (L) {
     return Math.trunc(L / 100);
 }
-const testnurs = numberTotalMeters (397.5);
-console.log('test04', testnurs);
+const testNurs = numberTotalMeters (397.5);
+console.log('test04', testNurs);
 
 //5.Даны длины ребер прям.параллепипеда a,b,c.Найти площадь всех его сторон S.
 function parallelepiped (a, b, c) {
     return 2 * (a * c + a * b + b * c);
 }
-const testpaed = parallelepiped (1, 2, 3);
-console.log('test05', testpaed);
+const testPaed = parallelepiped (1, 2, 3);
+console.log('test05', testPaed);
 
 //6.Даны две переменные А и В.Поменять местами их содержимое.Чтобы значение из А лежало В,а значение В в А.
 function swapContents (A, B) {
@@ -40,36 +40,36 @@ function swapContents (A, B) {
     A = C;
     return  [A, B];
 }
-const testswts = swapContents (15, 35);
-console.log('test06', testswts);
+const testSwts = swapContents (15, 35);
+console.log('test06', testSwts);
 
 //7.Дано число a и степень n.Вычислить a в степени n.
 function exponentiation (a, n) {
     return a ** n;
 }
-const testexon = exponentiation (2, 5);
-console.log('test07', testexon);
+const testExon = exponentiation (2, 5);
+console.log('test07', testExon);
 
 //8.Дано значение градусов в Фаренгейтах.Перевести значения в Цельсий.
 function celsium (f) {
     return f / 33.8;
 }
-const testceum = celsium (159);
-console.log('test08', testceum);
+const testCeum = celsium (159);
+console.log('test08', testCeum);
 
 //9.Дано двухзначное число.Найти сумму его чисел (левое и правое).
 function sumDigitsTwoDigitNumber (x) {
     return Math.trunc(x / 10) + (x % 10);
 }
-const testsuer = sumDigitsTwoDigitNumber (87);
-console.log('test09', testsuer);
+const testSuer = sumDigitsTwoDigitNumber (87);
+console.log('test09', testSuer);
 
 //10.Известно,что X кг конфет стоит А рублей.Найти сколько стоит 1 кг конфет.
 function oneKgSweets (A, X) {
     return A / X;
 }
-const testonts = oneKgSweets (353, 1.5);
-console.log('test10', testonts);
+const testOnts = oneKgSweets (353, 1.5);
+console.log('test10', testOnts);
 
 // Логические выражения
 // 11. Дано два целых числа a, b. Проверить истинность высказывания (a >= 0) и (b <= 3)
@@ -79,8 +79,8 @@ function checkTruth (a, b) {
     } else {
         return false;
     }
-}const testchth = checkTruth(15, 2);
-console.log('test11', testchth);
+}const testChth = checkTruth(15, 2);
+console.log('test11', testChth);
 
 // 12. Даны три целых числа a, b, c. Проверить истинность высказывания a < b < c
 function checkTruth1 (a, b, c) {
@@ -90,8 +90,8 @@ function checkTruth1 (a, b, c) {
         return false;
     }
 }
-const testchth1 = checkTruth1 (39, 37, 49);
-console.log('test12', testchth1);
+const testChth1 = checkTruth1 (39, 37, 49);
+console.log('test12', testChth1);
 
 // 13. Даны два целых числа. Проверить, что хотя бы одно число из двух четное.
 function checkParity (a, b) {
@@ -116,14 +116,14 @@ const test14 = noDuplicate (1.57, 57, 23);
 console.log('test14', test14);
 
 // 15. Даны координаты x, y. Проверить, что заданная точка лежит во второй или четвертой координатной четверти.
-function secondfourthCoordinateQuarter (x, y) {
+function secondFourthCoordinateQuarter (x, y) {
     if ((x < 0 && y > 0) || (x > 0 && y < 0)) {
         return true;
     } else {
         return false;
     }
 }
-const test15 = secondfourthCoordinateQuarter (3, 5);
+const test15 = secondFourthCoordinateQuarter (3, 5);
 console.log('test15', test15);
 
 // 16. Даны координаты поля шахматной доски x, y. Проверить какого цвета клетка.
@@ -900,7 +900,6 @@ console.log('tm14',tm14);
 // 15. Дан массив чисел. Удалить из массива все числа палиндромы.
 function toRemoveTheNumberOfPalindromes(n) {
     let p = [];
-    let m =[];
     for (let i = 0;i < n.length;i += 1){
         p = p + n[i];
         while (p.length === 1){
@@ -1044,7 +1043,7 @@ createCounter(counter3, 'counter-3');*/
 // 3. Дан массив цветов. Даны абзацы. По первому нажатию на абзац он должен
 // покраситься в первый цвет из массива, по второму нажатию - во второй и так далее.
 // Все абзацы работают независимо. Показать решение.
-/*function Z() {
+function Z() {
     let y = 0;
     return function x() {
         let n =['red','blue','green'];
@@ -1061,7 +1060,7 @@ createCounter(counter3, 'counter-3');*/
 };
 createCo(Z(), 'p-1');
 createCo(Z(), 'p-2');
-createCo(Z(), 'p-3');*/
+createCo(Z(), 'p-3');
 
 
 // 4. Даны кнопки. Каждая кнопка по нажатию на нее выводить следующее число
@@ -1094,37 +1093,6 @@ createPo(Fib(), 'but-2');*/
 // Каждый инпут свою. Изменением считается событие onchange. История должна хранится
 // в замыкании. Над каждым инпутом должны быть стрелочки назад и вперед,
 // с помощью которых можно передвигаться по истории. Показать решение.
-function Co () {
-    let a =[];
-    return function () {
-         a += newv.value;
-    };
-}
-const createPo = (d, id) => {
-     newv = document.getElementById(id);
-
-    newv.onchange = () => {
-        window.newv = newv;
-        newv.value = '';
-            d();
-    };
-//    let button = document.getElementById('minus');
-//    button.onclick = () => {
-//        function Co () {
-//            let a = [];
-//            return function () {
-//                a += newv.value;
-//            };
-//        }
-//        newv.textContent = a[a.length - 1];
-//        newv.value = a[a.length - 1];
-
-    };
-
-
-createPo(Co(),'new_value');
-
-
 function memo () {
     const valueList = [];
 
@@ -1155,3 +1123,22 @@ console.log('selectElement', memo_1.getCurrentValue());
 // числа от 1 до 100, но так, чтобы они не повторялись, пока не будут перебраны
 // все числа из этого промежутка. Решите задачу через замыкания - в замыкании
 // должен хранится массив чисел, которые уже были сгенерированы функцией. Показать решение.
+
+function randomNumbers() {
+    let e = [];
+    return () => {
+        for (let i = 1; i <= 100; i +=1) {
+            e[i - 1] = Math.ceil(Math.random() * 100);
+            for (let j = 0; j < i - 1; j +=1) {
+                if (e[i - 1] === e[j]) {
+                    i -= 1;
+                    break;
+                }
+            }
+        }
+        return e;
+    }
+}
+const randomNumbers_1 = randomNumbers ();
+console.log('случайные числа', randomNumbers_1());
+console.log('случайные числа', randomNumbers_1());

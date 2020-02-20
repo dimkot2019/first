@@ -82,10 +82,8 @@ class StudentClass {
     this.name = name;
     this.surname = surname;
     this.group = StudentClass.groupList.includes(group) ? group : 0;
-
-    this._isDrink = false;
+    this._isDrink = 'чуть-чуть';
   }
-
   sayHello() {
     console.log(`Привет! Меня зовут ${this.name}`);
   }
@@ -98,8 +96,11 @@ class StudentClass {
     this._isDrink = value;
   }
 }
-
-const petr = new StudentClass('Petr', 'Sidorov', 7);
+const vika = new StudentClass('Vika', 'Kozlova', 1);
+console.log('vika', vika);
+vika.sayHello();
+vika._isDrink = 'Wine';
+console.log(vika);
 
 const room = {
   width: 100,

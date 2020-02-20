@@ -1148,23 +1148,57 @@ console.log('случайные числа', randomNumbers_1());
 // Объекты и классы.
 
 // 1. Написать класс создания объектов Student, со свойствами: name, group_number, score (массив с оценками 1-5).
-class Student {
-    static score = [1, 2, 3, 4, 5];
-    constructor(name, group_number) {
+/*class Student {
+    constructor(name, group_number, score) {
         this.name = name;
         this.group_number = group_number;
+        this.score = score;
     }
 }
 
 // 2. Добавить классу методы: добавления оценок студенту, изменения имени и группы студента через геттеры/сеттеры
 class Student {
     constructor(name, group_number, score) {
+    this.name = name;
+    this.group_number = group_number;
+    this.score = score;
+
+}
+get _name() {
+    return this.name;
+}
+set _name(value) {
+    this.name = value;
+}
+get _group_number() {
+    return this.group_number;
+}
+set _group_number(value) {
+    this.group_number = value;
+}
+get _score() {
+    return this.score;
+}
+set _score(value) {
+    this.score = value;
+}
+}*/
+
+
+
+
+
+// 3. Добавить метод вычисления среднего балла студента
+class Student {
+    constructor(name, group_number, score) {
         this.name = name;
         this.group_number = group_number;
-        score = [];
         this.score = score;
-
+        this.averageScore = (this.score.reduce((pre, cur) => {return pre + cur;})) / this.score.length;
     }
+//    averageScore() {
+//        return ((this.score).reduce((pre, cur) => {return pre + cur;})) /// (this.score).length;
+//    }
     get _name() {
         return this.name;
     }
@@ -1185,8 +1219,9 @@ class Student {
     }
 }
 
-
-// 3. Добавить метод вычисления среднего балла студента
+const lika = new Student('Лика', 5, [4, 5, 5]);
+console.log('Лика', lika);
+//console.log(lika.averageScore([4, 5, 5, 2]));
 
 // 4. Нужно создать класс Коллекции, который имеет методы: создания объекта Student,
 // удаления объекта по индексу, метод который возвращает список студентов (новые экземпляры объектов

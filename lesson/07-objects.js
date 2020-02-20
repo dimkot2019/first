@@ -61,7 +61,7 @@ phone.model;
 phone.year = 9000;
 
 // Функции конструкции
-function Student(name, surname, group) {
+function Schoolboy(name, surname, group) {
   this.name = name;
   this.surname = surname;
   this.group = group;
@@ -70,7 +70,7 @@ function Student(name, surname, group) {
   };
 }
 
-const ivan = new Student('Ivan', 'Petrov', 5);
+const ivan = new Schoolboy('Ivan', 'Petrov', 5);
 
 ivan.sayHello();
 
@@ -101,6 +101,8 @@ console.log('vika', vika);
 vika.sayHello();
 vika._isDrink = 'Wine';
 console.log(vika);
+
+
 
 const room = {
   width: 100,

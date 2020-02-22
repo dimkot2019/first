@@ -11,7 +11,7 @@ const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
     const x = 100;
     resolve(x);
-  }, 5000);
+  }, 3000);
 
   setTimeout(() => {
     reject('Time out!');
@@ -90,3 +90,15 @@ serverFetchRequest
   .catch(error => {
     console.error(error);
   });
+
+
+const access = Promise.resolve('ok');
+const error = Promise.reject('bad');
+
+access.then(function (value) {
+  console.log({value})
+});
+
+error.catch(e => {
+  console.log({error: e});
+});

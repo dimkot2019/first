@@ -1,8 +1,8 @@
 {
-  "name": "first",
-  "version": "1.0.0",
-  "description": "моя первая программа",
-  "main": "script.js",
+  "name": "task-manager",
+  "version": "0.0.1",
+  "description": "Менеджер задач",
+  "main": "index.js",
   "scripts": {
     "start": "lite-server"
   },

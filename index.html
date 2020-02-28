@@ -35,14 +35,43 @@
     <link rel="stylesheet" type="text/css" href="./task-manager/style.css">
 </head>
 <body>
+<table>
+    <tr>
+        <td><a href="#add-task" class="open">+ добавить задачу</a></td>
+    </tr>
+    <tr>
+        <td ><a class="task"> Тема задачи </a><br>
+            <a class="description"> Описание </a>
+        </td>
 
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+</table>
+<form>
 <div id="add-task">
     <div id="modal">
-        <a href="#" class="close">X</a>
+        <p> тема задач  <a href="#" class="close">x</a>
+        </p>
+            <input type="text">
+        <div>
+            <p> описание <br>
+                <textarea rows="2" cols="25" class="message"></textarea></p>
+            <p> дата <br>
+                <input type="date" > </p>
+            <hr/>
+            <p><input type="submit" value="сохранить">
+                <input type="reset" value="отмена"></p>
+        </div>
     </div>
 </div>
-
-<a href="#add-task" class="open">+ добавить задачу</a>
-
+</form>
 </body>
 </html>

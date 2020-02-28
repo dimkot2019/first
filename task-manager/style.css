@@ -4,17 +4,15 @@
     position: absolute;
     top: 0;
     left: 0;
-
     display: none;
 }
 #modal {
     width: 200px;
-    height: 200px;
+    height: 280px;
     text-align: center;
-    padding: 15px;
-    border: 3px solid #0000cc;
-
-    color: #0000cc;
+    padding: 5px;
+    border: 2px solid black;
+    color: black;
     position: absolute;
     top: 0;
     right: 0;
@@ -26,8 +24,25 @@
 #add-task:target {display: block;}
 .open {
     display: inline-block;
-    border: 1px solid #0000cc;
+    border: 1px solid black;
     text-decoration: none;
+    margin-left: 30px;
+}
+.task {
+    display: inline-block;
+    border: 1px solid black;
+    text-decoration: none;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+.description {
+    width: 740px;
+    display: inline-block;
+    border: 1px solid black;
+    margin-left: 30px;
+    margin-top: 5px;
+    padding-bottom: 25px;
+
 }
 .close {
     display: inline-block;
@@ -35,3 +50,12 @@
     text-decoration: none;
     font-size: 14pt;
 }
+.message {
+    resize: none;
+}
+table {border: 1px solid grey;}
+table {width: 100%;}
+tr {border: 1px solid grey;}
+td {height: 80px;}
+table {border-collapse: collapse;}
+

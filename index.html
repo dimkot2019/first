@@ -37,13 +37,19 @@
 <body>
 <table>
     <tr>
-        <td><a href="#add-task" class="open">+ добавить задачу</a></td>
+        <td>
+            <a href="#add-task" class="open">+ добавить задачу</a>
+        </td>
     </tr>
     <tr>
-        <td ><a class="task"> Тема задачи </a><br>
-            <a class="description"> Описание </a>
+        <td >
+            <label class="task">
+                <input type="text" value="Тема задачи">
+            </label>
+            <span class="res"><input type="reset" value="x"></span>
+            <br>
+            <span class="description"> Описание </span>
         </td>
-
     </tr>
     <tr>
         <td></td>
@@ -57,19 +63,20 @@
 </table>
 <form>
 <div id="add-task">
-    <div id="modal">
-        <p> тема задач  <a href="#" class="close">x</a>
-        </p>
-            <input type="text">
-        <div>
-            <p> описание <br>
-                <textarea rows="2" cols="25" class="message"></textarea></p>
-            <p> дата <br>
-                <input type="date" > </p>
+    <div class="modal">
+        <label> тема задачи <a href="#" class="close">X</a>
+            <input type="text" id="subTask">
+        </label>
+            <label> описание <br>
+                <textarea id="spec" rows="2" cols="23" class="message"></textarea>
+            </label>
+            <label> дата <br>
+                <input type="date" >
+            </label>
             <hr/>
-            <p><input type="submit" value="сохранить">
-                <input type="reset" value="отмена"></p>
-        </div>
+            <label><input type="submit" value="сохранить">
+                <input type="reset" value="отмена">
+            </label>
     </div>
 </div>
 </form>

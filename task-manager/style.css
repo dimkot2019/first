@@ -54,6 +54,12 @@
     text-decoration: none;
     font-size: 14pt;
 }
+.close2 {
+    display: inline-block;
+    float: right;
+
+
+}
 .message {
     resize: none;
 }

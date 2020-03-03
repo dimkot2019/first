@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="./task-manager/style.css">
 </head>
 <body>
+<form>
 <table>
     <tr>
         <td>
@@ -43,10 +44,10 @@
     </tr>
     <tr>
         <td >
-            <label class="task">
-                <input type="text" value="Тема задачи">
-            </label>
-            <span class="res"><input type="reset" value="x"></span>
+            <label>
+            <input type="text" class="task" id="area" placeholder="Тема задачи">
+            <a onclick="area.value=''" class="close2">X</a>
+                </label>
             <br>
             <span class="description"> Описание </span>
         </td>
@@ -61,7 +62,7 @@
         <td></td>
     </tr>
 </table>
-<form>
+<!--<form>-->
 <div id="add-task">
     <div class="modal">
         <label> тема задачи <a href="#" class="close">X</a>
@@ -74,7 +75,8 @@
                 <input type="date" >
             </label>
             <hr/>
-            <label><input type="submit" value="сохранить">
+            <label>
+                <input type="submit" value="сохранить">
                 <input type="reset" value="отмена">
             </label>
     </div>
@@ -82,3 +84,4 @@
 </form>
 </body>
 </html>
+
